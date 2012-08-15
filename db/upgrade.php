@@ -2,7 +2,9 @@
 
 function xmldb_block_mynotepad_upgrade($oldversion, $block) {
     global $DB;
-        
+    
+    $dbman = $DB->get_manager(); // loads ddl manager and xmldb classes
+
 //    if ($oldversion < 2011062000) {
 //        global $DB;
 //        $dbman = $DB->get_manager();
@@ -28,7 +30,7 @@ function xmldb_block_mynotepad_upgrade($oldversion, $block) {
 //        // mynotes savepoint reached
 //        upgrade_block_savepoint(true,2011062201, 'mynotes');
 //    }
-if ($oldversion < 2012042301) {
+if ($oldversion < 2012081500) {
 }
 
     return true;

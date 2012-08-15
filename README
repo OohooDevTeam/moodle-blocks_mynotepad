@@ -1,0 +1,14 @@
+Plugin:
+    block_mynotepad
+
+Description:
+    This plugin allows users to take notes on course pages as well as course
+    activities and resources. Users can also edit their notes instantly on
+    the page after the note has been created. Clicking the 'X' will move the
+    note to the recycle bin.
+
+Prerequisites:
+    N/A
+
+Installation:
+    Copy the folder 'mynotepad' into moodle/blocks

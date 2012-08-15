@@ -1,5 +1,6 @@
-<?PHP // $Id$ 
-      // block_mynotepad.php (en lang) created by Hugo Santos
+<?PHP
+
+$string['blocks_mynotepad:addinstance'] = 'Add a new blocks_mynotepad';
 
 // Name and Title
 $string['blockname']       = 'MyNotepad';
