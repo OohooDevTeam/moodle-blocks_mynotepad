@@ -50,7 +50,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $capabilities = array(
 
-        'blocks/mynotepad:view' => array(
+        'blocks/mynotepad:addinstance' => array(
         'captype' => 'write',
         'contextlevel' => CONTEXT_MODULE,
         'legacy' => array(
