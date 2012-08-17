@@ -55,7 +55,7 @@ $capabilities = array(
         'contextlevel' => CONTEXT_MODULE,
         'legacy' => array(
             'teacher' => CAP_ALLOW,
-            'admin' => CAP_ALLOW
+            'manager' => CAP_ALLOW
         )
     ),
 

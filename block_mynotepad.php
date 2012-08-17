@@ -27,7 +27,7 @@ class block_mynotepad extends block_base {
 
     function init() {
         $this->title = get_string('blocktitle', 'block_mynotepad');
-      
+
     }
 
     //This makes instance_allow_config obsolete
@@ -134,7 +134,7 @@ class block_mynotepad extends block_base {
 //
         if ($remove) { // remove a note
             if (!$this->removenote($remove)) {
-                
+
             } //error(get_string('error_removing', 'block_mynotes')); }
         }
 //        //Check if in a course
@@ -165,7 +165,7 @@ class block_mynotepad extends block_base {
                 // create the table record
                 $this->content->text .= '<tr><td class="td">';
 
-                //Opens up the note to view and edit      
+                //Opens up the note to view and edit
                 $this->content->text .= "<a href='#' onmouseup='newPopup(\"$CFG->wwwroot/blocks/mynotepad/notes.php?blockInstance=$blockInstance&courseid=$courseid&id=$note->id&url=$encrypted_url\");' class=\"link_text\">";
                 $this->content->text .= '<img src="' . $CFG->wwwroot . '/blocks/mynotepad/icon1.png" height="16" width="16" border="0" class="icon" alt="&nbsp&nbsp&nbsp&nbsp"/> ';
 
@@ -220,31 +220,31 @@ class block_mynotepad extends block_base {
                                         FROM {course_sections} th
                                         WHERE th.id = '$section->section' AND th.course = '$courseid'";
                 $sequence = $DB->get_record_sql($sql_required_param);
-                
+
                 if($course_format == 'weeks'){
                     echo $format = 'weeks' . '</br>';
                     $course_start = $DB->get_record('course', array('id' => $sequence->course));
-                    
+
                     $date_sql = date('(m/d/Y)', $course_start->startdate);
                     $output = explode('/', $date_sql);
-                    
+
                     //Trims the open bracket
                     $month_str = trim($output[0],'(');
                     $day_init = $output[1];
                     $year = trim($output[2],')');
-                    
+
                     //Initial week dates that course was created
-                    $date1 = new DateTime("$year-$month_str-$day_init");                        
+                    $date1 = new DateTime("$year-$month_str-$day_init");
                     $date_init = $date1->format('Y-m-d');
-                    
+
                     $date2 = new DateTime("$date_init");
                     //adds 6 days to get the first week
-                    $date2->add(new DateInterval('P6D'));             
+                    $date2->add(new DateInterval('P6D'));
                     $date_final = $date2->format('Y-m-d');
-                    
+
                     echo $date_init . '</br>';
                     echo $date_final . '</br>';
-                    
+
                     if ($sequence->section == 0){
                         //Do nothing
                         $default_section = 'Summary';
@@ -261,9 +261,9 @@ class block_mynotepad extends block_base {
                         $date_new2 = $date2->format('Y-m-d');
                         echo $date_new2 . '</br>';
                     }
-                    
+
                 } else if($course_format == 'topics') {
-                    echo $format = 'topics' . '</br>';   
+                    echo $format = 'topics' . '</br>';
                     $key = explode(',', $sequence->sequence);
 
                     for ($counter = 0; $counter < sizeof($key); $counter++) {
@@ -277,7 +277,7 @@ class block_mynotepad extends block_base {
                 }
                 break;
 
-            case 'social': 
+            case 'social':
                 echo $format = 'social' . '</br>';
                 //decodes the url
                 $decoded_url = urldecode($encrypted_url);
@@ -287,8 +287,8 @@ class block_mynotepad extends block_base {
                 $discussion_name = $DB->get_record('forum_discussions', array('id' => $discussion_id));
                 echo $discussion_name->name;
                 break;
-            
-            case 'scorm': 
+
+            case 'scorm':
                 echo $format = 'SCORM' . '</br>';
 //                $scorm = $DB->get_record('scorm', array('id'=> , 'course'=>$cmid));
 //                $scorm_name = $scorm->name;
@@ -312,12 +312,12 @@ class block_mynotepad extends block_base {
                 // create the table record
                 $this->content->text .= '<tr><td class="td">';
 
-                //This is clicking on the note link       
+                //This is clicking on the note link
                 $this->content->text .= "<a href='#' onmouseup='newPopup(\"$CFG->wwwroot/blocks/mynotepad/notes.php?blockInstance=$blockInstance&courseid=$courseid&id=$note->id&url=$encrypted_url\");' class=\"link_text\">";
                 $this->content->text .= '<img src="' . $CFG->wwwroot . '/blocks/mynotepad/icon1.png" height="16" width="16" border="0" class="icon" alt="&nbsp&nbsp&nbsp&nbsp"/> ';
 
                 $this->content->text .= $this->text_limit($note->name) . '</a></br>';
-//        $this->content->text .=  date('(m/d/Y H:i:s)', $note->time_modified).'</td>';  
+//        $this->content->text .=  date('(m/d/Y H:i:s)', $note->time_modified).'</td>';
                 $this->content->text .= $note->time_modified . '</td>';
                 $this->content->text .= '<td width="6%">';
 
@@ -377,7 +377,7 @@ class block_mynotepad extends block_base {
 //        foreach ($deletegallerynote as $delete){
 //
 //           // if($delete->noteid == $noteid){
-//        
+//
 //            if ($DB->record_exists('gallerytable', array('noteid'=>$noteid, 'userid'=> $USER->id))){
 //                $gallery_recycled_note = $DB->get_record('gallerytable', array('noteid'=>$noteid, 'userid'=> $USER->id));
 //                $gallery_recycled_note->deleted = 1;
@@ -400,13 +400,13 @@ class block_mynotepad extends block_base {
 //    }
         //return ($DB->delete_records('notes', array('id'=>$noteid)));
     }
-    
-    function convert_to_month($month_str) {        
-        switch ($month_str) {                
+
+    function convert_to_month($month_str) {
+        switch ($month_str) {
             case '01': $month = 'January'; break;
             case '02': $month = 'February'; break;
             case '03': $month = 'March'; break;
-            case '04': $month = 'April'; break;   
+            case '04': $month = 'April'; break;
             case '05': $month = 'May'; break;
             case '06': $month = 'June'; break;
             case '07': $month = 'July'; break;
@@ -429,7 +429,7 @@ class block_mynotepad extends block_base {
      * ************* */
 
     /** function mypopup(3)
-     * Javascript function to provide a html form (htmlstring) in a popup 
+     * Javascript function to provide a html form (htmlstring) in a popup
      *
      * @param int width
      * @param int height
@@ -454,7 +454,7 @@ class block_mynotepad extends block_base {
                 'document.index.remove.value=noteid;' .
                 'document.index.submit();' .
                 '} else { exit; } }' .
-                //---------------------------------        
+                //---------------------------------
 
                 '</SCRIPT>';
 
