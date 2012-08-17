@@ -1,9 +1,18 @@
 <?php
+/**
+**************************************************************************
+**                              mynotepad                               **
+**************************************************************************
+* @package     block                                                    **
+* @subpackage  mynotepad                                                **
+* @name        mynotepad                                                **
+* @copyright   oohoo.biz                                                **
+* @link        http://oohoo.biz                                         **
+* @author      Theodore Pham                                            **
+* @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later **
+**************************************************************************
+**************************************************************************/
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 $plugin->version = 2012081701;
 //$plugin->requires = 2010112400; //Moodle 2.0
 $plugin->requires = 2011070100; //Moodle 2.1

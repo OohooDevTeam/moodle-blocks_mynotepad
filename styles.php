@@ -1,3 +1,19 @@
+#/**
+#**************************************************************************
+#**                              mynotepad                               **
+#**************************************************************************
+#* @package     block                                                    **
+#* @subpackage  mynotepad                                                **
+#* @name        mynotepad                                                **
+#* @copyright   oohoo.biz                                                **
+#* @link        http://oohoo.biz                                         **
+#* @author      Theodore Pham                                            **
+#* @author      Hugo Santos (Modified/Based code on Hugo Santos)         **
+#* @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later **
+#**************************************************************************
+#*************************************************************************/
+
+
 # Stylesheet for block MyNotes v1.0
 
 .block_mynotepad .description {
@@ -10,7 +26,7 @@
 
 .block_mynotepad .link_text {
  color:black;
- cursor:pointer; 
+ cursor:pointer;
  font-size:1.0em;
  padding-left:0px;
  padding-bottom:8px;

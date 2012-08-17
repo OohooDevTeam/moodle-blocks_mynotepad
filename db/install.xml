@@ -1,3 +1,17 @@
+/**
+**************************************************************************
+**                              mynotepad                               **
+**************************************************************************
+* @package     block                                                    **
+* @subpackage  mynotepad                                                **
+* @name        mynotepad                                                **
+* @copyright   oohoo.biz                                                **
+* @link        http://oohoo.biz                                         **
+* @author      Theodore Pham                                            **
+* @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later **
+**************************************************************************
+**************************************************************************/
+
 <?xml version="1.0" encoding="UTF-8" ?>
 <XMLDB PATH="blocks/mynotepad/db" VERSION="20110615" COMMENT="XMLDB file for Moodle blocks/mynotepad"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
