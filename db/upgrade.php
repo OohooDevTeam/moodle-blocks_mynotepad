@@ -14,6 +14,14 @@
 **************************************************************************
 **************************************************************************/
 
+/**
+ * This function upgrades the plugin when there is a new version available.
+ *
+ * @global type $DB
+ * @param type $oldversion This string is for the old plugin version
+ * @param type $block This string was a default
+ * @return boolean Returns whether the current version is new than the older version
+ */
 function xmldb_block_mynotepad_upgrade($oldversion, $block) {
     global $DB;
 

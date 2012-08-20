@@ -24,12 +24,13 @@ class notes_form extends moodleform {
     private $cmid;
 
     /**
+     * Constructor
      *
-     * @param type $id
-     * @param type $course_id
-     * @param type $return_url
-     * @param type $blockInstance
-     * @param type $cmid
+     * @param int $id This number is for use in the constructor
+     * @param int $course_id This number is for use in the constructor
+     * @param string $return_url This string is for use in the constructor
+     * @param int $blockInstance This number is for use in the constructor
+     * @param int $cmid This number is for use in the constructor
      */
     function __construct($id, $course_id,$return_url,$blockInstance, $cmid){
         $this->id = $id;
@@ -106,11 +107,9 @@ change_parent();
         $mform->addElement('html', '</br>');
 
 /****************************************************/ //End of commented code
-
         $mform->addElement('text', 'title', 'Note Title: ', array('maxlength' => 255, 'size'=>65));
-        $mform->addRule('title', 'Please enter a title', 'required', 'client', false, false);
-        $mform->addRule('title', 'Please enter numbers and/or letters only', 'nopunctuation', 'client', false, false);
-
+        $mform->addRule('title', get_string('blank_title_msg', 'block_mynotepad'), 'required', null, 'client');
+        $mform->addRule('title', get_string('invalid_title_msg', 'block_mynotepad'), 'nopunctuation', 'required', null, 'client');
 
         $mform->addElement('htmleditor', 'text', '', array('canUseHtmlEditor'=>'detect', 'rows'=>50, 'cols'=>50));
         $mform->setType('text', PARAM_RAW);
@@ -127,16 +126,12 @@ change_parent();
         $this->add_action_buttons(true, 'save');
         $mform->addElement('html', '</center>');
 
-        //$mform->addElement('format', 'format', get_string('format'));
-
         //Checks if id is set
         //Retrieves record and loads the data from specified note
           if($this->id > 0){
             //get one note with this id
-              //print_object(3);
-
               $note = $DB->get_record('notes', array('id'=>$this->id, 'userid'=> $USER->id), '*');
-                      //print_object($note);
+              //Set the default title and content if the note already exists upon opening the note for editing
               $mform->setDefault('title', $note->name);
               $mform->setDefault('text', $note->text);
         }

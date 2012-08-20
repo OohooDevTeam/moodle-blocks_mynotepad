@@ -31,19 +31,8 @@ $string['notregistered']   = '(Not registered for this course)';
 // Javascript string
 $string['confirm_delete']  = 'Note will be removed. Are you sure?';
 
-
-
-//$string['delete']          = 'Delete';
-//$string['last_updated']    = 'Last update';
-//
-//
-//$string['save']            = 'Save';
-//$string['text']            = 'Text';
-//$string['edit']            = 'Edit';
-//
-//// Errors...
-//$string['error_inserting'] = 'Error inserting note.';
-//$string['error_editing']   = 'Error editing note.';
-//$string['error_removing']  = 'Error removing note.';
+// Notes Form
+$string['invalid_title_msg'] = 'Please enter numbers and/or letters only';
+$string['blank_title_msg']   = 'Please enter a title';
 
 ?>
