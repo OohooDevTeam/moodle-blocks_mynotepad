@@ -1,4 +1,9 @@
-/**
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="blocks/mynotepad/db" VERSION="20110615" COMMENT="XMLDB file for Moodle blocks/mynotepad"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+    <!--/**
 **************************************************************************
 **                              mynotepad                               **
 **************************************************************************
@@ -10,13 +15,7 @@
 * @author      Theodore Pham                                            **
 * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later **
 **************************************************************************
-**************************************************************************/
-
-<?xml version="1.0" encoding="UTF-8" ?>
-<XMLDB PATH="blocks/mynotepad/db" VERSION="20110615" COMMENT="XMLDB file for Moodle blocks/mynotepad"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
->
+**************************************************************************/-->
     <TABLES>
         <TABLE NAME="block_mynotepad" COMMENT="Default comment for the table, please edit me" NEXT="notes">
             <FIELDS>
