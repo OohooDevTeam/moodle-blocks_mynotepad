@@ -27,7 +27,7 @@ function xmldb_block_mynotepad_upgrade($oldversion, $block) {
 
     $dbman = $DB->get_manager(); // loads ddl manager and xmldb classes
 
-if ($oldversion < 2012081701) {
+if ($oldversion < 2012083000) {
 }
 
     return true;
