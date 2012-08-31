@@ -38,7 +38,7 @@
                 <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
             </KEYS>
         </TABLE>
-        <TABLE NAME="notes" COMMENT="Default comment for the table, please edit me" PREVIOUS="block_mynotepad">
+        <TABLE NAME="notes" COMMENT="Table which stores all the notes" PREVIOUS="block_mynotepad">
             <FIELDS>
                 <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="cmid"/>
                 <FIELD NAME="cmid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="id" NEXT="intro"/>

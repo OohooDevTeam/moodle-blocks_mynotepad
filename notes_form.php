@@ -68,8 +68,6 @@ $path_parts = pathinfo($url);
 $dirname = $path_parts['dirname'];
 $basename = $path_parts['basename'];
 
-
-//This code was commented out
 /***************************************************************/
 change_parent();
 

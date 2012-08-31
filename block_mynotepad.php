@@ -236,7 +236,6 @@ class block_mynotepad extends block_base {
                 $sequence = $DB->get_record_sql($sql_required_param);
 
                 if($course_format == 'weeks'){
-                    echo $format = 'weeks' . '</br>';
                     $course_start = $DB->get_record('course', array('id' => $sequence->course));
 
                     $date_sql = date('(m/d/Y)', $course_start->startdate);
@@ -256,44 +255,36 @@ class block_mynotepad extends block_base {
                     $date2->add(new DateInterval('P6D'));
                     $date_final = $date2->format('Y-m-d');
 
-                    echo $date_init . '</br>';
-                    echo $date_final . '</br>';
-
                     if ($sequence->section == 0){
                         //Do nothing
                         $default_section = 'Summary';
                         echo $default_section;
 
                     } else {
-                        //Offset according to the section number the activity or resource it is in
+                        //Offset according to the section number the activity or resource it is in to calculate the date
                         $offset = 7*($sequence->section-1);
                         //Begin date for specified course section
                         $date1->add(new DateInterval('P'.$offset.'D'));
                         $date_new = $date1->format('Y-m-d');
-                        echo $date_new . '</br>';
+
                         //End date for specified course section
                         $date2->add(new DateInterval('P'.$offset.'D'));
                         $date_new2 = $date2->format('Y-m-d');
-                        echo $date_new2 . '</br>';
                     }
 
                 } elseif ($course_format == 'topics') {
-                    echo $format = 'topics' . '</br>';
                     $key = explode(',', $sequence->sequence);
 
                     for ($counter = 0; $counter < sizeof($key); $counter++) {
                         //Checks if the sequence number and id match up, since there might be more than one number and prints out the section name if there is one
                         if ($key[$counter] == $section->id && $sequence->name != NULL) {
-                            echo $sequence->name . '</br>';
-                            echo $sequence->section . '</br>';
-                            print_object($sequence);
+
                         }
                     }
                 }
                 break;
 
             case 'social':
-                echo $format = 'social' . '</br>';
                 //Decodes the url
                 $decoded_url = urldecode($encrypted_url);
                 //Finds the forum discussion id
@@ -304,7 +295,6 @@ class block_mynotepad extends block_base {
                 break;
 
             case 'scorm':
-                echo $format = 'SCORM' . '</br>';
                 $scorm = $DB->get_record('scorm', array('course'=>$cmid));
                 $scorm = $scorm->name;
                 break;
@@ -367,8 +357,8 @@ class block_mynotepad extends block_base {
      * This function limits the length of the note title which is displayed
      *
      * @global stdClass $CFG
-     * @param type $text This string is for the user input of their note title
-     * @return type Return the shortened string
+     * @param string $text This string is for the user input of their note title
+     * @return string Return the shortened string
      */
     function text_limit($text) {
         global $CFG;
@@ -401,7 +391,7 @@ class block_mynotepad extends block_base {
     /**
      * Converts month numerical value to it's string equivalent
      *
-     * @param type $month_str
+     * @param int $month_str This number represents the numerical value of eah month
      * @return string Returns the string value of the month
      */
     function convert_to_month($month_str) {
@@ -426,7 +416,7 @@ class block_mynotepad extends block_base {
     /**
      *  This function enables user to open a pop up to edit their notes
      *
-     * @param type $encrypted_url This string is for opening up the note in a pop up window
+     * @param string $encrypted_url This string is for opening up the note in a pop up window
      * @return string Returns the Javascript function to provide a html form (htmlstring) in a popup
      */
     function get_javascript($encrypted_url) {
@@ -450,7 +440,6 @@ class block_mynotepad extends block_base {
 
         return $javascript;
     }
-
 }
 ?>
 
